@@ -15,6 +15,10 @@ class Solution:
         for num in nums:
             temp_set = set()
             for subsum in dp:
+                # This if statement dramatically reduces runtime.
+                if subsum+num == target or num == target:
+                    return True
+                
                 temp_set.add(subsum+num)
                 temp_set.add(subsum)
             dp = temp_set
